@@ -16,8 +16,12 @@ Installing tool:
 
 Then creates a new project:
 
-* `create-react-app my-new-app react-complete-guide`
+* `create-react-app my-new-app`
 
 CD into `my-new-app` folder.
 
-Run app with `npm start` and open browser at `http://localhost:3000`
+Run app with
+
+* `npm start`
+
+and then open a web browser at `http://localhost:3000`
