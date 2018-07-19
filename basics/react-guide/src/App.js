@@ -13,6 +13,12 @@ class App extends Component {
           <p>This is a new paragraph inside root component</p>
         </header>
         <Person />
+        <Person />
+        <Person />
+        <Person />
+        <Person />
+        <Person />
+        <Person />
       </div>
     );
 
