@@ -12,13 +12,9 @@ class App extends Component {
           <h1 className="App-title">First React App</h1>
           <p>This is a new paragraph inside root component</p>
         </header>
-        <Person />
-        <Person />
-        <Person />
-        <Person />
-        <Person />
-        <Person />
-        <Person />
+          <Person name="David" age="28" />
+          <Person name="Andres" age="25"> My Hobbies: Racing</Person>
+          <Person name="Catalina" age="20" />
       </div>
     );
 
