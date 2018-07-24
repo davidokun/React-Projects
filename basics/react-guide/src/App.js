@@ -26,6 +26,16 @@ class App extends Component {
         });
     };
 
+    typedChangeNameHandler = (event) => {
+        this.setState({
+            persons: [
+                {name: 'David', age: 21},
+                {name: event.target.value, age: 25},
+                {name: 'Catalina', age: 20}
+            ]
+        });
+    };
+
     render() {
         return (
             <div className="App">
@@ -41,7 +51,8 @@ class App extends Component {
                 <Person name={this.state.persons[1].name}
                         age={this.state.persons[1].age}
                         // Second way to bind parameters. This is the preferred way
-                        changeNameClick={this.switchNameHandler.bind(this, 'Alexa!')}> My Hobbies: Racing</Person>
+                        changeNameClick={this.switchNameHandler.bind(this, 'Alexa!')}
+                        typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>
                 <Person name={this.state.persons[2].name}
                         age={this.state.persons[2].age} />
             </div>
