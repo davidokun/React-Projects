@@ -15,11 +15,11 @@ class App extends Component {
         otherState: "Other Value"
     };
 
-    switchNameHandler = () => {
+    switchNameHandler = (newName) => {
         // Update the state
         this.setState({
             persons: [
-                {name: 'Rose', age: 21},
+                {name: newName, age: 21},
                 {name: 'Andres', age: 25},
                 {name: 'Catalina', age: 20}
             ]
@@ -34,10 +34,16 @@ class App extends Component {
                     <h1 className="App-title">First React App</h1>
                     <p>This is a new paragraph inside root component</p>
                 </header>
-                <button onClick={this.switchNameHandler}>Switch Name</button>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-                <Person name={this.state.persons[1].name} age={this.state.persons[1].age} > My Hobbies: Racing</Person>
-                <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+                {/*First way to pass parameters to a function. This could be inefficient */}
+                <button onClick={() => this.switchNameHandler('Angie!')}>Switch Name</button>
+                <Person name={this.state.persons[0].name}
+                        age={this.state.persons[0].age} />
+                <Person name={this.state.persons[1].name}
+                        age={this.state.persons[1].age}
+                        // Second way to bind parameters. This is the preferred way
+                        changeNameClick={this.switchNameHandler.bind(this, 'Alexa!')}> My Hobbies: Racing</Person>
+                <Person name={this.state.persons[2].name}
+                        age={this.state.persons[2].age} />
             </div>
         );
 
