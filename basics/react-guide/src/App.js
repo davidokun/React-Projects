@@ -37,6 +37,15 @@ class App extends Component {
     };
 
     render() {
+
+        const style = {
+            backgroundColor: 'grey',
+            font: 'inherit',
+            border: '1px solid red',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -45,7 +54,8 @@ class App extends Component {
                     <p>This is a new paragraph inside root component</p>
                 </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
-                <button onClick={() => this.switchNameHandler('Angie!')}>Switch Name</button>
+                <button style={style}
+                        onClick={() => this.switchNameHandler('Angie!')}>Switch Name</button>
                 <Person name={this.state.persons[0].name}
                         age={this.state.persons[0].age} />
                 <Person name={this.state.persons[1].name}
