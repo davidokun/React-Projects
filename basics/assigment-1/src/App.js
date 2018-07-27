@@ -10,6 +10,12 @@ class App extends Component {
         username: 'DavidM'
     };
 
+    changeNameHandler = (event) => {
+        this.setState({
+            username: event.target.value
+        });
+    };
+
     render() {
         return (
             <div className="App">
@@ -18,7 +24,7 @@ class App extends Component {
                     <h1 className="App-title">React Assignment #1</h1>
                 </header>
 
-                <UserInput/>
+                <UserInput username={this.state.username} changeNameHandler={this.changeNameHandler} />
                 <hr/>
                 <UserOutput username={this.state.username}/>
                 <UserOutput username={this.state.username}/>
