@@ -1,10 +1,11 @@
 import React from 'react'
+import './UserInput.css'
 
 const UserInput = (props) => {
 
     return (
-        <div>
-            <label htmlFor="userInput">User Input: </label>
+        <div className="UserInput">
+            <label htmlFor="userInput" className="user-label">User Input: </label>
             <input id="userInput" value={props.username} onChange={props.changeNameHandler} type="text"/>
         </div>
     )
