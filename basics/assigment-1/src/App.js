@@ -5,10 +5,12 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
+
+    state = {
+        username: 'DavidM'
+    };
+
     render() {
-
-        const username = 'David';
-
         return (
             <div className="App">
                 <header className="App-header">
@@ -18,9 +20,9 @@ class App extends Component {
 
                 <UserInput/>
                 <hr/>
-                <UserOutput username={username}/>
-                <UserOutput username={username}/>
-                <UserOutput username={username}/>
+                <UserOutput username={this.state.username}/>
+                <UserOutput username={this.state.username}/>
+                <UserOutput username={this.state.username}/>
 
             </div>
         );
