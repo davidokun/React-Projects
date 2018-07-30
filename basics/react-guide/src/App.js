@@ -41,6 +41,24 @@ class App extends Component {
             cursor: 'pointer'
         };
 
+        let persons = null;
+
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                    <Person name={this.state.persons[0].name}
+                            age={this.state.persons[0].age}/>
+                    <Person name={this.state.persons[1].name}
+                            age={this.state.persons[1].age}
+                        // Second way to bind parameters. This is the preferred way
+                            changeNameClick={this.togglePersonHandler.bind(this, 'Alexa!')}
+                            typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>
+                    <Person name={this.state.persons[2].name}
+                            age={this.state.persons[2].age}/>
+                </div>
+            );
+        }
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -51,19 +69,8 @@ class App extends Component {
                 {/*First way to pass parameters to a function. This could be inefficient */}
                 <button style={style}
                         onClick={this.togglePersonHandler}>Toggle Persons</button>
-                { this.state.showPersons ?
-                    <div>
-                        <Person name={this.state.persons[0].name}
-                                age={this.state.persons[0].age} />
-                        <Person name={this.state.persons[1].name}
-                                age={this.state.persons[1].age}
-                            // Second way to bind parameters. This is the preferred way
-                                changeNameClick={this.togglePersonHandler.bind(this, 'Alexa!')}
-                                typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>
-                        <Person name={this.state.persons[2].name}
-                                age={this.state.persons[2].age} />
-                    </div> : null
-                }
+
+                {persons}
             </div>
         );
 
