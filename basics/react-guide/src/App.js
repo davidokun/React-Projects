@@ -21,14 +21,10 @@ class App extends Component {
         this.setState({showPersons: !doesShow});
     };
 
-    typedChangeNameHandler = (event) => {
-        this.setState({
-            persons: [
-                {name: 'David', age: 21},
-                {name: event.target.value, age: 25},
-                {name: 'Catalina', age: 20}
-            ]
-        });
+    deletePersonHandler = (index) => {
+        const persons = this.state.persons;
+        persons.splice(index, 1);
+        this.setState({persons: persons});
     };
 
     render() {
@@ -46,18 +42,13 @@ class App extends Component {
         if (this.state.showPersons) {
             persons = (
                 <div>
-                    {this.state.persons.map(person => {
-                        return <Person name={person.name} age={person.age} />
+                    {this.state.persons.map((person, index) => {
+                        return <Person
+                            name={person.name}
+                            age={person.age}
+                            removePerson={() => this.deletePersonHandler(index)} />
                     })}
-                    {/*<Person name={this.state.persons[0].name}*/}
-                            {/*age={this.state.persons[0].age}/>*/}
-                    {/*<Person name={this.state.persons[1].name}*/}
-                            {/*age={this.state.persons[1].age}*/}
-                        {/*// Second way to bind parameters. This is the preferred way*/}
-                            {/*changeNameClick={this.togglePersonHandler.bind(this, 'Alexa!')}*/}
-                            {/*typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>*/}
-                    {/*<Person name={this.state.persons[2].name}*/}
-                            {/*age={this.state.persons[2].age}/>*/}
+
                 </div>
             );
         }
