@@ -12,18 +12,13 @@ class App extends Component {
             {name: 'Andres', age: 25},
             {name: 'Catalina', age: 20}
         ],
-        otherState: "Other Value"
+        otherState: "Other Value",
+        showPersons: false
     };
 
-    switchNameHandler = (newName) => {
-        // Update the state
-        this.setState({
-            persons: [
-                {name: newName, age: 21},
-                {name: 'Andres', age: 25},
-                {name: 'Catalina', age: 20}
-            ]
-        });
+    togglePersonHandler = () => {
+        const doesShow = this.state.showPersons;
+        this.setState({showPersons: !doesShow});
     };
 
     typedChangeNameHandler = (event) => {
@@ -55,16 +50,20 @@ class App extends Component {
                 </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
                 <button style={style}
-                        onClick={() => this.switchNameHandler('Angie!')}>Switch Name</button>
-                <Person name={this.state.persons[0].name}
-                        age={this.state.persons[0].age} />
-                <Person name={this.state.persons[1].name}
-                        age={this.state.persons[1].age}
-                        // Second way to bind parameters. This is the preferred way
-                        changeNameClick={this.switchNameHandler.bind(this, 'Alexa!')}
-                        typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>
-                <Person name={this.state.persons[2].name}
-                        age={this.state.persons[2].age} />
+                        onClick={this.togglePersonHandler}>Toggle Persons</button>
+                { this.state.showPersons ?
+                    <div>
+                        <Person name={this.state.persons[0].name}
+                                age={this.state.persons[0].age} />
+                        <Person name={this.state.persons[1].name}
+                                age={this.state.persons[1].age}
+                            // Second way to bind parameters. This is the preferred way
+                                changeNameClick={this.togglePersonHandler.bind(this, 'Alexa!')}
+                                typedName={this.typedChangeNameHandler}> My Hobbies: Racing</Person>
+                        <Person name={this.state.persons[2].name}
+                                age={this.state.persons[2].age} />
+                    </div> : null
+                }
             </div>
         );
 
