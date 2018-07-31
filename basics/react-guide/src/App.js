@@ -8,9 +8,9 @@ class App extends Component {
     // If state change, React is prompted to re-render the page
     state = {
         persons: [
-            {name: 'David', age: 28},
-            {name: 'Andres', age: 25},
-            {name: 'Catalina', age: 20}
+            {id: '3534', name: 'David', age: 28},
+            {id: '699', name: 'Andres', age: 25},
+            {id: '76898', name: 'Catalina', age: 20}
         ],
         otherState: "Other Value",
         showPersons: false
@@ -48,6 +48,7 @@ class App extends Component {
                         return <Person
                             name={person.name}
                             age={person.age}
+                            key={person.id}
                             removePerson={() => this.deletePersonHandler(index)} />
                     })}
 
