@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Validation from'./Validation/Validation';
 
 class App extends Component {
 
@@ -27,6 +28,8 @@ class App extends Component {
                 <p>
                     {this.state.outputLength}
                 </p>
+
+                <Validation outputLength={this.state.outputLength}/>
             </div>
         );
     }
