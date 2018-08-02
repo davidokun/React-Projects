@@ -1,21 +1,35 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+
+    state = {
+        outputLength: 0
+    };
+
+    textLengthHandler = (event) => {
+        this.setState({outputLength: event.target.value.length})
+    };
+
+
+    render() {
+
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h1 className="App-title">React Assignment 2</h1>
+                </header>
+                <br/>
+                <label htmlFor="text">Enter a text: </label>
+                <input type="text" id="text" onChange={(event) => this.textLengthHandler(event)}/>
+                <p>
+                    {this.state.outputLength}
+                </p>
+            </div>
+        );
+    }
 }
 
 export default App;
