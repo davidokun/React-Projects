@@ -8,13 +8,19 @@ class App extends Component {
 
     state = {
         outputLength: 0,
-        outputValue: ''
+        outputValue: []
     };
 
     textLengthHandler = (event) => {
         this.setState({outputLength: event.target.value.length});
-        this.setState({outputValue: event.target.value})
+        this.setState({outputValue: event.target.value.split('')})
     };
+
+    removeCharHandler = (index) => {
+        const newValue = this.state.outputValue.slice();
+        newValue.splice(index, 1);
+        this.setState({outputValue: newValue});
+    }
 
 
     render() {
@@ -34,8 +40,8 @@ class App extends Component {
 
                 <Validation outputLength={this.state.outputLength}/>
 
-                {this.state.outputValue.split('').map((v) => {
-                    return <CharComponent value={v} />
+                {this.state.outputValue.map((v, index) => {
+                    return <CharComponent value={v} remove={() => this.removeCharHandler(index)} />
                 })}
             </div>
         );
