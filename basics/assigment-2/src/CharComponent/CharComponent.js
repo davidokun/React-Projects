@@ -5,7 +5,7 @@ const CharComponent = (props) => {
 
     return (
         <div className="CharComponent">
-            
+            {props.value}
         </div>
     );
 };

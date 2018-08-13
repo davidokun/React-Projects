@@ -2,15 +2,18 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Validation from'./Validation/Validation';
+import CharComponent from'./CharComponent/CharComponent';
 
 class App extends Component {
 
     state = {
-        outputLength: 0
+        outputLength: 0,
+        outputValue: ''
     };
 
     textLengthHandler = (event) => {
-        this.setState({outputLength: event.target.value.length})
+        this.setState({outputLength: event.target.value.length});
+        this.setState({outputValue: event.target.value})
     };
 
 
@@ -30,6 +33,10 @@ class App extends Component {
                 </p>
 
                 <Validation outputLength={this.state.outputLength}/>
+
+                {this.state.outputValue.split('').map((v) => {
+                    return <CharComponent value={v} />
+                })}
             </div>
         );
     }
