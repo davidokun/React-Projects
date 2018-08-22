@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Validation from'./Validation/Validation';
-import CharComponent from'./CharComponent/CharComponent';
+import Char from './Char/Char';
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
         const newValue = this.state.outputValue.slice();
         newValue.splice(index, 1);
         this.setState({outputValue: newValue});
-    }
+    };
 
 
     render() {
@@ -41,7 +41,7 @@ class App extends Component {
                 <Validation outputLength={this.state.outputLength}/>
 
                 {this.state.outputValue.map((v, index) => {
-                    return <CharComponent value={v} remove={() => this.removeCharHandler(index)} />
+                    return <Char value={v} remove={() => this.removeCharHandler(index)} />
                 })}
             </div>
         );
