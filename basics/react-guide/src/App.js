@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import Radium from 'radium';
 
 class App extends Component {
     // Only available in classes that extends Component. Not in function components.
@@ -55,7 +56,11 @@ class App extends Component {
             border: '1px solid red',
             padding: '8px',
             cursor: 'pointer',
-            marginTop: '10px'
+            marginTop: '10px',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         };
 
         let persons = null;
@@ -76,6 +81,10 @@ class App extends Component {
             );
 
             style.backgroundColor = 'red';
+            style[':hover'] = {
+                backgroundColor: 'salmon',
+                color: 'black'
+            }
         }
 
         let classes = [];
@@ -113,4 +122,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Radium(App);
