@@ -78,12 +78,23 @@ class App extends Component {
             style.backgroundColor = 'red';
         }
 
+        let classes = [];
+
+        if (this.state.persons.length <= 2) {
+            classes.push('red');
+        }
+
+        if (this.state.persons.length <= 1) {
+            classes.push('bold');
+        }
+
+
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">First React App</h1>
-                    <p>This is a new paragraph inside root component</p>
+                    <p className={classes.join(' ')}>This is a new paragraph inside root component</p>
                 </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
                 <button style={style}
