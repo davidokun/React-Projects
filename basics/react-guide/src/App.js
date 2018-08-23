@@ -49,11 +49,12 @@ class App extends Component {
     render() {
 
         const style = {
-            backgroundColor: 'grey',
+            backgroundColor: 'white',
             font: 'inherit',
             border: '1px solid red',
             padding: '8px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            marginTop: '10px'
         };
 
         let persons = null;
