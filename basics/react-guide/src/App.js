@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
     // Only available in classes that extends Component. Not in function components.
@@ -56,11 +55,7 @@ class App extends Component {
             border: '1px solid red',
             padding: '8px',
             cursor: 'pointer',
-            marginTop: '10px',
-            ':hover': {
-                backgroundColor: 'lightgreen',
-                color: 'black'
-            }
+            marginTop: '10px'
         };
 
         let persons = null;
@@ -81,10 +76,6 @@ class App extends Component {
             );
 
             style.backgroundColor = 'red';
-            style[':hover'] = {
-                backgroundColor: 'salmon',
-                color: 'black'
-            }
         }
 
         let classes = [];
@@ -99,7 +90,6 @@ class App extends Component {
 
 
         return (
-            <StyleRoot>
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
@@ -112,7 +102,6 @@ class App extends Component {
 
                 {persons}
             </div>
-            </StyleRoot>
         );
 
         /* This is the same as the JSX above. It compiles to html */
@@ -124,4 +113,4 @@ class App extends Component {
     }
 }
 
-export default Radium(App);
+export default App;
