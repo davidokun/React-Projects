@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
     // Only available in classes that extends Component. Not in function components.
@@ -99,6 +99,7 @@ class App extends Component {
 
 
         return (
+            <StyleRoot>
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
@@ -111,6 +112,7 @@ class App extends Component {
 
                 {persons}
             </div>
+            </StyleRoot>
         );
 
         /* This is the same as the JSX above. It compiles to html */
