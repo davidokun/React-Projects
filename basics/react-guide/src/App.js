@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
-import classes from './App.css';
+import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -78,23 +78,23 @@ class App extends Component {
             style.backgroundColor = 'red';
         }
 
-        let assignedClasses = [];
+        let classes = [];
 
         if (this.state.persons.length <= 2) {
-            assignedClasses.push(classes.red);
+            classes.push('red');
         }
 
         if (this.state.persons.length <= 1) {
-            assignedClasses.push(classes.bold);
+            classes.push('bold');
         }
 
 
         return (
-            <div className={classes.App}>
-                <header className={classes.AppHeader}>
-                    <img src={logo} className={classes.AppLogo} alt="logo"/>
-                    <h1 className={classes.AppTitle}>First React App</h1>
-                    <p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h1 className="App-title">First React App</h1>
+                    <p className={classes.join(' ')}>This is a new paragraph inside root component</p>
                 </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
                 <button style={style}
