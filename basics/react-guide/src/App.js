@@ -48,17 +48,8 @@ class App extends Component {
 
     render() {
 
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid red',
-            padding: '8px',
-            cursor: 'pointer',
-            marginTop: '10px'
-        };
-
         let persons = null;
+        let btnClass = '';
 
         if (this.state.showPersons) {
             persons = (
@@ -75,7 +66,8 @@ class App extends Component {
                 </div>
             );
 
-            style.backgroundColor = 'red';
+            btnClass = classes.Red;
+
         }
 
         let assignedClasses = [];
@@ -97,7 +89,7 @@ class App extends Component {
                     <p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>
                 </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
-                <button style={style}
+                <button className={btnClass}
                         onClick={this.togglePersonHandler}>Toggle Persons</button>
 
                 {persons}
