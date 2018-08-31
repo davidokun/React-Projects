@@ -84,11 +84,11 @@ class App extends Component {
 
         return (
             <div className={classes.App}>
-                {/*<header className={classes.AppHeader}>*/}
-                    {/*<img src={logo} className={classes.AppLogo} alt="logo"/>*/}
-                    {/*<h1 className={classes.AppTitle}>First React App</h1>*/}
-                    {/*<p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>*/}
-                {/*</header>*/}
+                <header className={classes.AppHeader}>
+                    <img src={logo} className={classes.AppLogo} alt="logo"/>
+                    <h1 className={classes.AppTitle}>First React App</h1>
+                    <p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>
+                </header>
                 {/*First way to pass parameters to a function. This could be inefficient */}
                 <button className={btnClass}
                         onClick={this.togglePersonHandler}>Toggle Persons</button>
