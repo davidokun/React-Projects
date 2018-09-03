@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from '../logo.svg';
 import classes from './App.css';
 import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
     // Only available in classes that extends Component. Not in function components.
@@ -49,44 +50,25 @@ class App extends Component {
     render() {
 
         let persons = null;
-        let btnClass = '';
 
         if (this.state.showPersons) {
-            persons = (
-                <div>
-                    <Persons
+            persons = <Persons
                         persons={this.state.persons}
                         deletePersonHandler={this.deletePersonHandler}
                         nameChangeHandler={this.nameChangeHandler} />
-                </div>
-            );
-
-            btnClass = classes.Red;
-
         }
-
-        let assignedClasses = [];
-
-        if (this.state.persons.length <= 2) {
-            assignedClasses.push(classes.red);
-        }
-
-        if (this.state.persons.length <= 1) {
-            assignedClasses.push(classes.bold);
-        }
-
 
         return (
             <div className={classes.App}>
                 <header className={classes.AppHeader}>
                     <img src={logo} className={classes.AppLogo} alt="logo"/>
                     <h1 className={classes.AppTitle}>First React App</h1>
-                    <p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>
                 </header>
-                {/*First way to pass parameters to a function. This could be inefficient */}
-                <button className={btnClass}
-                        onClick={this.togglePersonHandler}>Toggle Persons</button>
 
+                <Cockpit
+                    showPersons={this.state.showPersons}
+                    persons={this.state.persons}
+                    togglePersonHandler={this.togglePersonHandler}/>
                 {persons}
             </div>
         );
