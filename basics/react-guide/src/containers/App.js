@@ -66,6 +66,7 @@ class App extends Component {
                 </header>
 
                 <Cockpit
+                    title={this.props.appTitle}
                     showPersons={this.state.showPersons}
                     persons={this.state.persons}
                     togglePersonHandler={this.togglePersonHandler}/>
