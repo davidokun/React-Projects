@@ -5,6 +5,21 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        console.log('[App.js] constructor');
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStateFromProps', props);
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
+
     // Only available in classes that extends Component. Not in function components.
     // If state change, React is prompted to re-render the page
     state = {
@@ -48,14 +63,14 @@ class App extends Component {
     };
 
     render() {
-
+        console.log('[App.js] render');
         let persons = null;
 
         if (this.state.showPersons) {
             persons = <Persons
-                        persons={this.state.persons}
-                        deletePersonHandler={this.deletePersonHandler}
-                        nameChangeHandler={this.nameChangeHandler} />
+                persons={this.state.persons}
+                deletePersonHandler={this.deletePersonHandler}
+                nameChangeHandler={this.nameChangeHandler}/>
         }
 
         return (
