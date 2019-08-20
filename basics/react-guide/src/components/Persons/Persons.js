@@ -5,10 +5,11 @@ const Persons = (props) =>
 
     props.persons.map((person, index) => {
         return <Person
-                name={person.name}
-                age={person.age}
-                removePerson={() => props.deletePersonHandler(index)}
-                changed={(event) => props.nameChangeHandler(event, person.id)}/>
+            key={index}
+            name={person.name}
+            age={person.age}
+            removePerson={() => props.deletePersonHandler(index)}
+            changed={(event) => props.nameChangeHandler(event, person.id)}/>
     });
 
 
