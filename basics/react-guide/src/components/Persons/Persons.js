@@ -23,6 +23,7 @@ class Persons extends Component {
         return {message: 'Snapshot!'};
     }
 
+    // Will be the more used!!  
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[Persons.js] componentDidUpdate');
         console.log(snapshot);
