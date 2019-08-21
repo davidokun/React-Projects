@@ -9,9 +9,16 @@ const Cockpit = (props) => {
         // Here can be used most of the life cycles from Class components'
 
         // simulates and http request.
-        setTimeout(() => {
-            alert('Performing an http request')
-        }, 1000);
+        // setTimeout(() => {
+        //     alert('Performing an http request')
+        // }, 1000);
+
+        return () => {
+            // It will run BEFORE the component is destroy.
+            // Used as componentWillUnmount.
+            console.log('[Cockpit.js] clean up work in cockpit useEffect');
+        };
+
     }, [props.persons]); // will execute ONLY when the 'persons' is updated
     // pass an '[]' to be execute only once, when it was created (componentDidMount).
 
