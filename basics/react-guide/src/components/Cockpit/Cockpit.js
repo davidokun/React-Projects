@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from "./Cockpit.css";
 
 const Cockpit = (props) => {
+
+    // React hook that execute for every render cycle in functional components.
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        // Here can be used most of the life cycles from Class components'
+    });
 
     const assignedClasses = [];
     let btnClass = '';
