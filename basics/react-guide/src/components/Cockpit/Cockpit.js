@@ -7,7 +7,13 @@ const Cockpit = (props) => {
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Here can be used most of the life cycles from Class components'
-    });
+
+        // simulates and http request.
+        setTimeout(() => {
+            alert('Performing an http request')
+        }, 1000);
+    }, [props.persons]); // will execute ONLY when the 'persons' is updated
+    // pass an '[]' to be execute only once, when it was created (componentDidMount).
 
     const assignedClasses = [];
     let btnClass = '';
