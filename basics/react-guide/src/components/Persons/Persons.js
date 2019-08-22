@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from "./Person/Person";
 
-class Persons extends Component {
+// PureComponent implements shouldComponentUpdate with check for ALL props used in this component
+// hence, will render if any of those has changed
+class Persons extends PureComponent {
     // Not to be used
     // static getDerivedStateFromProps(props, state) {
     //     console.log('[Persons.js] getDerivedStateFromProps');
@@ -13,10 +15,10 @@ class Persons extends Component {
     //     console.log('[Persons.js] componentWillReceiveProps', nextProps);
     // }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log('[Persons.js] shouldComponentUpdate');
-        return nextProps.persons !== this.props.persons;
-    }
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     console.log('[Persons.js] shouldComponentUpdate');
+    //     return nextProps.persons !== this.props.persons;
+    // }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
