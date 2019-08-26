@@ -1,4 +1,6 @@
 import React, {Component, Fragment} from 'react';
+import PropTypes from 'prop-types';
+
 import withClass from '../../../hoc/withClass';
 import classes from './Person.css';
 
@@ -19,5 +21,13 @@ class Person extends Component {
         );
     }
 }
+
+// PropTypes to enforce types on the props passed to a component.
+Person.propTypes = {
+    removePerson: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
+};
 
 export default withClass(Person, classes.Person)

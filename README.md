@@ -25,3 +25,17 @@ Run app with
 * `npm start`
 
 and then open a web browser at `http://localhost:3000`
+
+## External Packages
+
+`Radium`
+
+To use inline pseudo selectors and media queries.
+
+* `npm install --save radium`
+
+`PropTypes`
+
+Used to inform types of props passed into a component.
+
+* `npm install --save prop-types`
