@@ -3,7 +3,8 @@ import logo from '../logo.svg';
 import classes from './App.css';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClass from '../hoc/WithClass';
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Aux';
 
 class App extends Component {
 
@@ -84,7 +85,7 @@ class App extends Component {
         }
 
         return (
-            <WithClass classes={classes.App}>
+            <Aux>
                 <header className={classes.AppHeader}>
                     <img src={logo} className={classes.AppLogo} alt="logo"/>
                     <h1 className={classes.AppTitle}>First React App</h1>
@@ -96,7 +97,7 @@ class App extends Component {
                     personsLenght={this.state.persons.length}
                     togglePersonHandler={this.togglePersonHandler}/>
                 {persons}
-            </WithClass>
+            </Aux>
         );
 
         /* This is the same as the JSX above. It compiles to html */
@@ -108,4 +109,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withClass(App, classes.App);
