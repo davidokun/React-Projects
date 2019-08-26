@@ -40,7 +40,8 @@ class App extends Component {
             {id: '76898', name: 'Catalina', age: 20}
         ],
         otherState: "Other Value",
-        showPersons: false
+        showPersons: false,
+        changeCounter: 0
     };
 
     togglePersonHandler = () => {
@@ -62,7 +63,12 @@ class App extends Component {
         const persons = [...this.state.persons];
         persons[personIndex] = person;
 
-        this.setState({persons: persons});
+        this.setState((prevState, props) => {
+            return {
+                persons: persons,
+                changeCounter: prevState.changeCounter + 1 //this syntax is when depending on previous state
+            }
+        });
     };
 
     deletePersonHandler = (index) => {
