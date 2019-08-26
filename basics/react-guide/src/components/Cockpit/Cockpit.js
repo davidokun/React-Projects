@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
+
 import classes from "./Cockpit.css";
 
 const cockpit = (props) => {
+    const toggleBtnRef = useRef(null);
 
     // React hook that execute for every render cycle in functional components.
     useEffect(() => {
@@ -9,15 +11,16 @@ const cockpit = (props) => {
         // Here can be used most of the life cycles from Class components'
 
         //simulates and http request.
-        const timer = setTimeout(() => {
-            alert('Performing an http request')
-        }, 1000);
+        // const timer = setTimeout(() => {
+        //     alert('Performing an http request')
+        // }, 1000);
+        toggleBtnRef.current.click();
 
         return () => {
             // It will run BEFORE the component is destroy.
             // Used as componentWillUnmount.
             console.log('[Cockpit.js] clean up work in cockpit useEffect');
-            clearTimeout(timer); // example of some clean up
+            // clearTimeout(timer); // example of some clean up
         };
 
     // }, [props.persons]); // will execute ONLY when the 'persons' is updated
@@ -44,6 +47,7 @@ const cockpit = (props) => {
             <h1>{props.title}</h1>
             <p className={assignedClasses.join(' ')}>This is a new paragraph inside root component</p>
             <button className={btnClass}
+                    ref={toggleBtnRef}
                     onClick={props.togglePersonHandler}>Toggle Persons</button>
         </div>
     );
