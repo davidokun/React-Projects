@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import withClass from '../../../hoc/withClass';
 import classes from './Person.css';
+import AuthContext from '../../../context/auth-context';
 
 class Person extends Component {
     constructor(props) {
@@ -21,7 +22,9 @@ class Person extends Component {
         // Fragment does the same as the Aux component. Implementation is the same
         return (
             <Fragment>
-                {this.props.isAuthenticated ? <p>Authenticated</p> : <p>Please log in</p>}
+                <AuthContext.Consumer>
+                    {(context) => context.authenticated ? <p>Authenticated</p> : <p>Please log in</p>}
+                </AuthContext.Consumer>
 
                 <p onClick={this.props.removePerson}
                    key="k1">
@@ -29,7 +32,7 @@ class Person extends Component {
                 </p>
                 <p key="k2">{this.props.children}</p>
                 <input key="3"
-                       // ref={(inputEl) => {this.inputElement = inputEl}} //only for class base component
+                    // ref={(inputEl) => {this.inputElement = inputEl}} //only for class base component
                        ref={this.inputElementRef}
                        type="text"
                        onChange={this.props.changed}

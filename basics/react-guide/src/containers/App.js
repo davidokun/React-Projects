@@ -5,6 +5,7 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from '../hoc/withClass';
 import Aux from '../hoc/Aux';
+import AuthContext from '../context/auth-context';
 
 class App extends Component {
 
@@ -102,14 +103,17 @@ class App extends Component {
                     <img src={logo} className={classes.AppLogo} alt="logo"/>
                     <h1 className={classes.AppTitle}>First React App</h1>
                 </header>
-
-                <Cockpit
-                    title={this.props.appTitle}
-                    showPersons={this.state.showPersons}
-                    personsLenght={this.state.persons.length}
-                    togglePersonHandler={this.togglePersonHandler}
-                    login={this.loginHandler}/>
-                {persons}
+                <AuthContext.Provider value={{
+                    authenticated: this.state.authenticated,
+                    login: this.loginHandler
+                }}>
+                    <Cockpit
+                        title={this.props.appTitle}
+                        showPersons={this.state.showPersons}
+                        personsLenght={this.state.persons.length}
+                        togglePersonHandler={this.togglePersonHandler}/>
+                    {persons}
+                </AuthContext.Provider>
             </Aux>
         );
 
