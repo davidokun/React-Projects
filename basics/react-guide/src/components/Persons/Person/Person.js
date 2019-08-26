@@ -21,6 +21,8 @@ class Person extends Component {
         // Fragment does the same as the Aux component. Implementation is the same
         return (
             <Fragment>
+                {this.props.isAuthenticated ? <p>Authenticated</p> : <p>Please log in</p>}
+
                 <p onClick={this.props.removePerson}
                    key="k1">
                     I'm {this.props.name} and I am {this.props.age} years old
